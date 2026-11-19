@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "2.0.0",
+  "kind": "platform",
+  "platform": "creator",
+  "endpointCount": 3,
+  "endpoints": [
+    "creator/find-emails",
+    "creator/find-social-profiles",
+    "creator/age-gender"
+  ],
+  "landingPage": "https://socq.ai/apis/creator",
+  "docsPage": "https://docs.socq.ai/api-manual/creator/overview",
+  "generatedFrom": "SocQAPI/socq-example-template"
+}

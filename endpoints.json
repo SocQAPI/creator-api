@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "platform": "creator",
+  "platformName": "Creator",
+  "baseUrl": "https://api.socq.ai",
+  "creditUsd": 0.005,
+  "endpoints": [
+    {
+      "publicId": "creator/find-emails",
+      "name": "Influencer Email Finder API",
+      "description": "Find the public business emails of a creator from an Instagram, TikTok, YouTube, X or Facebook profile, each with the pages it was found on.",
+      "method": "POST",
+      "path": "/v1/creator/find-emails",
+      "payload": "payloads/find-emails.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.5 credits ($0.0025) per call + 7.5 credits ($0.0375) per result; maximum 8 credits ($0.04) per call",
+      "billing": {
+        "baseCredits": 0.5,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 7.5,
+        "estimateResultCount": 1,
+        "emptyResultPolicy": "base_only",
+        "maxCredits": 8
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/creator/find-emails",
+      "landingUrl": "https://socq.ai/apis/creator/find-emails",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public profile URL, such as https://www.instagram.com/<username> or https://www.tiktok.com/@<username>."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "Provide one Instagram, TikTok, YouTube, X or Facebook profile URL in url. The profile, its bio links and its linked websites are checked for public contact emails; the result is one row listing each email with the pages it was found on."
+      }
+    },
+    {
+      "publicId": "creator/find-social-profiles",
+      "name": "Social Media Profile Finder API",
+      "description": "Find the accounts a creator runs on other networks from one profile URL, with a 0 to 1 confidence and the evidence behind each match.",
+      "method": "POST",
+      "path": "/v1/creator/find-social-profiles",
+      "payload": "payloads/find-social-profiles.json",
+      "launchedAt": "2026-11-17",
+      "price": "8 credits ($0.04) per call",
+      "billing": {
+        "baseCredits": 8,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/creator/find-social-profiles",
+      "landingUrl": "https://socq.ai/apis/creator/find-social-profiles",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public profile URL, such as https://www.instagram.com/<username> or https://www.tiktok.com/@<username>."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "Provide one Instagram, TikTok, YouTube, X or Facebook profile URL in url. Each row is one account the same creator runs on another network, with a confidence score and the evidence that links it."
+      }
+    },
+    {
+      "publicId": "creator/age-gender",
+      "name": "Age and Gender Detection API",
+      "description": "Estimate a creator's age range and gender from the profile photo on Instagram, TikTok, YouTube, X or Threads, with a confidence score.",
+      "method": "POST",
+      "path": "/v1/creator/age-gender",
+      "payload": "payloads/age-gender.json",
+      "launchedAt": "2026-11-17",
+      "price": "1 credit ($0.005) per call",
+      "billing": {
+        "baseCredits": 1,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/creator/age-gender",
+      "landingUrl": "https://socq.ai/apis/creator/age-gender",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public profile URL, such as https://www.instagram.com/<username> or https://www.tiktok.com/@<username>."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "Provide one Instagram, TikTok, YouTube, X or Threads profile URL in url. Age and gender are estimated from the face in the profile photo, which suits accounts run by a person."
+      }
+    }
+  ]
+}
